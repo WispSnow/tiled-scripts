@@ -58,7 +58,7 @@ let copyPasteAnimations = {
 			let difference = dstTile.id - srcTile.id;
 			let adjustedFrames = [];
 			for(let f = 0; f < newFrames.length; ++f) {
-				let newFrame = newFrames[f];
+				let newFrame = Object.assign({}, newFrames[f]);
 				newFrame.tileId += difference;
 				adjustedFrames.push(newFrame);
 			}
@@ -87,7 +87,7 @@ let copyPasteAnimations = {
 			
 			let adjustedFrames = [];
 			for(let f = 0; f < newFrames.length; ++f) {
-				let newFrame = newFrames[f];
+				let newFrame = Object.assign({}, newFrames[f]);
 				let newTileId = newFrame.tileId;
 				let newIndex = srcTiles.indexOf(srcTileset.tile(newTileId));
 				let newX = newIndex % srcColumns, newY = Math.floor(newIndex / srcColumns);
